@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SDCA_DVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="USR">
+          <Key>
+            <PropertyRef Name="USR_UID" />
+          </Key>
+          <Property Name="USR_UID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LGN_UID" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="USR_DSPLY_NAM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ACTV_FLG" Type="bit" Nullable="false" />
+          <Property Name="EXPRTN_DTE" Type="datetime" />
+          <Property Name="CRET_DTM" Type="datetime" Nullable="false" />
+          <Property Name="CRET_UID" Type="int" />
+          <Property Name="LST_UPDT_DTM" Type="datetime" />
+          <Property Name="LST_UPDT_UID" Type="int" />
+        </EntityType>
+        <Association Name="USR_FK30">
+          <End Role="USR" Type="Self.USR" Multiplicity="0..1" />
+          <End Role="USR1" Type="Self.USR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USR">
+              <PropertyRef Name="USR_UID" />
+            </Principal>
+            <Dependent Role="USR1">
+              <PropertyRef Name="CRET_UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USR_FK31">
+          <End Role="USR" Type="Self.USR" Multiplicity="0..1" />
+          <End Role="USR1" Type="Self.USR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USR">
+              <PropertyRef Name="USR_UID" />
+            </Principal>
+            <Dependent Role="USR1">
+              <PropertyRef Name="LST_UPDT_UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SDCA_DVModelStoreContainer">
+          <EntitySet Name="USR" EntityType="Self.USR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="USR_FK30" Association="Self.USR_FK30">
+            <End Role="USR" EntitySet="USR" />
+            <End Role="USR1" EntitySet="USR" />
+          </AssociationSet>
+          <AssociationSet Name="USR_FK31" Association="Self.USR_FK31">
+            <End Role="USR" EntitySet="USR" />
+            <End Role="USR1" EntitySet="USR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SDCA_DVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="USR">
+          <Key>
+            <PropertyRef Name="USR_UID" />
+          </Key>
+          <Property Name="USR_UID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LGN_UID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USR_DSPLY_NAM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ACTV_FLG" Type="Boolean" Nullable="false" />
+          <Property Name="EXPRTN_DTE" Type="DateTime" Precision="3" />
+          <Property Name="CRET_DTM" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CRET_UID" Type="Int32" />
+          <Property Name="LST_UPDT_DTM" Type="DateTime" Precision="3" />
+          <Property Name="LST_UPDT_UID" Type="Int32" />
+          <NavigationProperty Name="USR1" Relationship="Self.USR_FK30" FromRole="USR" ToRole="USR1" />
+          <NavigationProperty Name="USR2" Relationship="Self.USR_FK30" FromRole="USR1" ToRole="USR" />
+          <NavigationProperty Name="USR11" Relationship="Self.USR_FK31" FromRole="USR" ToRole="USR1" />
+          <NavigationProperty Name="USR3" Relationship="Self.USR_FK31" FromRole="USR1" ToRole="USR" />
+        </EntityType>
+        <Association Name="USR_FK30">
+          <End Role="USR" Type="Self.USR" Multiplicity="0..1" />
+          <End Role="USR1" Type="Self.USR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USR">
+              <PropertyRef Name="USR_UID" />
+            </Principal>
+            <Dependent Role="USR1">
+              <PropertyRef Name="CRET_UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USR_FK31">
+          <End Role="USR" Type="Self.USR" Multiplicity="0..1" />
+          <End Role="USR1" Type="Self.USR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USR">
+              <PropertyRef Name="USR_UID" />
+            </Principal>
+            <Dependent Role="USR1">
+              <PropertyRef Name="LST_UPDT_UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SDCA_DVEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="USRs" EntityType="Self.USR" />
+          <AssociationSet Name="USR_FK30" Association="Self.USR_FK30">
+            <End Role="USR" EntitySet="USRs" />
+            <End Role="USR1" EntitySet="USRs" />
+          </AssociationSet>
+          <AssociationSet Name="USR_FK31" Association="Self.USR_FK31">
+            <End Role="USR" EntitySet="USRs" />
+            <End Role="USR1" EntitySet="USRs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SDCA_DVModelStoreContainer" CdmEntityContainer="SDCA_DVEntities">
+          <EntitySetMapping Name="USRs">
+            <EntityTypeMapping TypeName="SDCA_DVModel.USR">
+              <MappingFragment StoreEntitySet="USR">
+                <ScalarProperty Name="USR_UID" ColumnName="USR_UID" />
+                <ScalarProperty Name="LGN_UID" ColumnName="LGN_UID" />
+                <ScalarProperty Name="USR_DSPLY_NAM" ColumnName="USR_DSPLY_NAM" />
+                <ScalarProperty Name="ACTV_FLG" ColumnName="ACTV_FLG" />
+                <ScalarProperty Name="EXPRTN_DTE" ColumnName="EXPRTN_DTE" />
+                <ScalarProperty Name="CRET_DTM" ColumnName="CRET_DTM" />
+                <ScalarProperty Name="CRET_UID" ColumnName="CRET_UID" />
+                <ScalarProperty Name="LST_UPDT_DTM" ColumnName="LST_UPDT_DTM" />
+                <ScalarProperty Name="LST_UPDT_UID" ColumnName="LST_UPDT_UID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

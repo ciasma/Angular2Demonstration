@@ -186,8 +186,23 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Employee.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Employee.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
-      <DependentUpon>Employees.tt</DependentUpon>
+      <DependentUpon>Employee.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Employee.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
     <Compile Include="Employees.Context.cs">
       <AutoGen>True</AutoGen>
@@ -213,6 +228,16 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Employee.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Employee.edmx</DependentUpon>
+      <LastGenOutput>Employee.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Employee.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Employee.edmx</DependentUpon>
+      <LastGenOutput>Employee1.cs</LastGenOutput>
+    </Content>
     <Content Include="Employees.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Employees.edmx</DependentUpon>
@@ -256,6 +281,13 @@
     </EntityDeploy>
     <Content Include="Employees.edmx.diagram">
       <DependentUpon>Employees.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Employee.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Employee.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Employee.edmx.diagram">
+      <DependentUpon>Employee.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -318,7 +350,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57542</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:57542/</IISUrl>
+          <IISUrl>http://localhost:31324/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

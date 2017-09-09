@@ -7,17 +7,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.userText = 'Pragim ';
+var EmployeeComponent = (function () {
+    function EmployeeComponent() {
+        this.columnSpan = 2;
+        this.firstName = 'Tom';
+        this.lastName = 'Thumb';
+        this.gender = 'Male';
+        this.age = 20;
+        this.showDetails = false;
     }
-    return AppComponent;
+    EmployeeComponent.prototype.toggleDetails = function () {
+        this.showDetails = !this.showDetails;
+    };
+    return EmployeeComponent;
 }());
-AppComponent = __decorate([
+EmployeeComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: "<div style=\"padding:5px\">\n                <ul class=\"nav nav-tabs\">\n                    <li routerLinkActive=\"active\"> <a routerLink=\"home\">Home</a> </li>\n                    <li routerLinkActive=\"active\"> <a routerLink=\"employees\">Employees</a></li>\n                </ul>\n            </div>\n            <router-outlet></router-outlet>\n      "
+        selector: 'my-employee',
+        templateUrl: 'app/employee/employee.component.html',
+        styleUrls: ['app/employee/employee.component.css']
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], EmployeeComponent);
+exports.EmployeeComponent = EmployeeComponent;
+//# sourceMappingURL=employee.component - Copy.js.map

@@ -11,7 +11,7 @@ namespace EmployeeWebAPIService.Controllers
     {
         public IEnumerable<Employee> Get()
         {
-            using (EmployeesDBEntities entities = new EmployeesDBEntities())
+            using (EmployeeDBEntities entities = new EmployeeDBEntities())
             {
                 return entities.Employees.ToList();
             }
@@ -19,7 +19,7 @@ namespace EmployeeWebAPIService.Controllers
 
         public Employee Get(string code)
         {
-            using (EmployeesDBEntities entities = new EmployeesDBEntities())
+            using (EmployeeDBEntities entities = new EmployeeDBEntities())
             {
                 return entities.Employees.FirstOrDefault(e=>e.code == code);
             }

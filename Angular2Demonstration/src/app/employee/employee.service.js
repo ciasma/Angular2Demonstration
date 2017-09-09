@@ -14,12 +14,18 @@ var http_1 = require("@angular/http");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
+require("rxjs/add/Observable/throw");
 var EmployeeService = (function () {
     function EmployeeService(_http) {
         this._http = _http;
     }
     EmployeeService.prototype.getEmployees = function () {
-        return this._http.get("http://localhost:57542/api/employees")
+        return this._http.get("http://localhost:31324/api/employees")
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    EmployeeService.prototype.getEmployeeByCode = function (empCode) {
+        return this._http.get("http://localhost:31324/api/employees/" + empCode)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
